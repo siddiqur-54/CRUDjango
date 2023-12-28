@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the world's top blog site</h1>
+    <h3>Welcome Mr. {{ user.username }}</h3>
+    <a href='{% url "blogs:blog_list_search" %}'>Blog List</a><br>
+    <a href='{% url "blogs:blog_list_search_own" %}'>My Blog List</a><br>
+    <a href='{% url "blogs:blog_create" %}'>Create Blog</a><br>
+    <a href='/logout/'>Log Out</a><br>
+
+    {% block content %}
+
+    {% endblock content %}
+</body>
+</html>

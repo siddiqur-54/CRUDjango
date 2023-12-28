@@ -1,0 +1,50 @@
+{% extends 'master_blogs.html' %}
+
+{% block content %}
+
+<br><br>
+<form action="" method="GET">
+    <input type="text" name="query" placeholder="Title/Content">
+    <input type="submit">
+</form>
+
+<h3>List of my searched blogs: </h3>
+<p>Search results for "{{ query}}"</p>
+{% if query %}
+<ul>
+    {% for object in object_search_list %}
+        {% if object.title %}
+            <li>
+                <h3>Author: {{object.user.username}}</h3>
+                {{object.title}}
+                <a href='{{ object.get_absolute_url }}'>Details</a>
+                <a href='{% url "blogs:blog_update" slug=object.slug %}'>Update</a>
+                <a href='{% url "blogs:blog_delete" slug=object.slug %}'>Delete</a>
+                <br>
+                {{object.content}}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<h3>List of all my blogs: </h3>
+<ul>
+    {% for object in object_list %}
+        {% if object.title %}
+            <li>
+                <p>Author: {{object.user.username}}</p>
+                {{object.title}}
+                <a href='{{ object.get_absolute_url }}'>Details</a>
+                <a href='{% url "blogs:blog_update" slug=object.slug %}'>Update</a>
+                <a href='{% url "blogs:blog_delete" slug=object.slug %}'>Delete</a>
+                <br>
+                {{object.content}}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}

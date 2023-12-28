@@ -1,0 +1,9 @@
+{% extends "master_blogs.html" %}
+
+{% block content %}
+
+<h2>Title: {{ object.title }}</h2>
+<h3>Author: {{ object.user.username }}</h3>
+<h4>Content: {{ object.content }}</h4>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'master_blogs.html' %}
+
+{% block content %}
+
+{% if not updated %}
+
+<div style="margin-top: 30px;">
+<form action="." method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button style="margin-top: 10px;" type="submit">Update Article</button>
+</form>
+</div>
+{% else %}
+
+<p>Your blog was updated</p>
+<h3>Title: {{object.title}} <a href="/{{ object.get_absolute_url }}">Details</a></h3>
+
+{% endif %}
+
+{% endblock content %}
