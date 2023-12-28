@@ -16,7 +16,7 @@ The project focuses on Django user authentication and CRUD operations.
 - Override save method
 - Django pre_save and post_save signals
 - Django querysets and lookups
+- Model Manager and Custom Queryset
 - Complex search using Q lookups
 - Get absolute URL
 - URLs reverse
-- Model Manager and Custom Queryset
